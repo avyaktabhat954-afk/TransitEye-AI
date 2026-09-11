@@ -1,0 +1,9 @@
+# TransitEye ANPR Module Dependencies
+python_version >= 3.11.9
+torch == 2.14.0+cpu
+ultralytics == 8.4.140
+paddlepaddle == 3.3.1
+paddleocr == 3.7.0
+paddlex == 3.7.2
+opencv-python == 4.10.0.84
+pydantic >= 2.0.0

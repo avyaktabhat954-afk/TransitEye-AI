@@ -1,0 +1,28 @@
+{
+  "event_type": "waterlogging",
+  "detections": [
+    {
+      "class_name": "waterlogging",
+      "confidence": 0.8421,
+      "bbox": [
+        0.2,
+        159.7,
+        639.7,
+        640.0
+      ],
+      "mask_pixels": 219352,
+      "mask_area_ratio": 0.5355
+    }
+  ],
+  "total_mask_area_ratio": 0.5355,
+  "severity": "high",
+  "metadata": {
+    "status": "success",
+    "image_path": "ml/waterlogging/sample_input/flooded_road.jpg",
+    "image_dimensions": [
+      640,
+      640
+    ],
+    "num_instances": 1
+  }
+}

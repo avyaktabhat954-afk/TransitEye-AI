@@ -167,3 +167,11 @@ desktop.ini
 # Scratch / local-only one-off scripts
 # ------------------------------
 scratch/
+# Person 5 ANPR / Waterlogging datasets & benchmarks
+ml/anpr/dataset_combined_working/
+ml/waterlogging/dataset_combined_working/
+ml/anpr/sample_input/
+ml/anpr/sample_output/
+ml/waterlogging/benchmark/
+ml/waterlogging/analysis/*manifest*.csv
+ml/waterlogging/analysis/*exclusions*.csv

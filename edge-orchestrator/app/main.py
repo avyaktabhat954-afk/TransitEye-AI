@@ -5,11 +5,12 @@ from app.config.settings import settings
 from app.orchestrator.core import orchestrator_core
 from app.adapters.fake_adapters import (
     RoadDefectAdapter,
-    WaterloggingAdapter,
     VRUAdapter,
     ANPRAdapter,
     TrafficDensityAdapter,
 )
+
+from ml.waterlogging.adapter import WaterloggingAdapter
 
 # Initialize FastAPI application
 app = FastAPI(

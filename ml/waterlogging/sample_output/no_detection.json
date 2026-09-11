@@ -1,0 +1,15 @@
+{
+  "event_type": "waterlogging",
+  "detections": [],
+  "total_mask_area_ratio": 0.0,
+  "severity": "none",
+  "metadata": {
+    "status": "no_detection",
+    "image_path": "ml/waterlogging/sample_input/no_detection.jpg",
+    "image_dimensions": [
+      640,
+      640
+    ],
+    "num_instances": 0
+  }
+}

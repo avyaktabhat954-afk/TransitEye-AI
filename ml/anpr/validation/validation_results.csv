@@ -1,0 +1,28 @@
+filename,yolo_detected,num_plates_detected,detector_confidence,ocr_text_returned,ocr_confidence,final_plate_text,inference_completed_without_error,inference_time_sec,failure_error_info
+dsA_test_7c6227ed-9e92-4062-9591-b172cb32ec10___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Honda-Jazz-Front-Number-Plates-Designs_jpg.rf.c1761c4322d8330414ef2392bf30a538.jpg,True,2,0.7281,TN 42 R 2697,0.9324,TN42R2697,True,8.8093,None
+dsA_test_AS15_jpg.rf.aa059588ec1245efbbef82845d35e16f.jpg,True,1,0.7971,AS018F9673,0.9283,AS018F9673,True,1.6233,None
+dsA_test_ML15_jpg.rf.9534e5e5b0e685fe1d07733d738fcc44.jpg,True,1,0.798,ML 11 1909,0.9276,ML111909,True,1.5353,None
+dsA_test_OD14_jpg.rf.c8eca5c16700fceee3bca7e48de3d922.jpg,True,1,0.7698,0D02L4656,0.995,0D02L4656,True,1.439,None
+dsA_test_UP10_jpg.rf.27da90c9c971976bdafc0d0943b7dff3.jpg,True,1,0.7999,UP78 DB 3730,0.9999,UP78DB3730,True,2.5148,None
+dsA_test_af270103-6ed4-4260-9d01-b8be2e2b9af1___skoda-rapid-1-5-tdi-dsg-review-jpg_jpeg.rf.8c8f90680dae0d9ed46d96b4d559fc10.jpg,True,1,0.8074,MH20DJ0419,0.9993,MH20DJ0419,True,1.5818,None
+dsA_test_b117ba53-d563-49c2-806b-343666616815___new_Maruti-Suzuki-recalls-75419-Baleno-cars-1961-DZire-cars-only-AGS-variant-Motown-India-Bureau-2-810-jpg_jpeg.rf.a13692ad24bdfe8688148fd64c9756af.jpg,True,1,0.7872,HR 26 CR 3302,0.9931,HR26CR3302,True,1.609,None
+dsA_test_b4eb91cd-3e77-40c2-bbe6-13d42f2ea4ba___INNOVA_Euro_Number_Plates-jpg_jpeg.rf.7e3677aca401388b520cc6da6371fb33.jpg,True,1,0.8558,KL 43 B 2344,0.9576,KL43B2344,True,1.6095,None
+dsA_test_ba457a81-cf10-4879-8e8f-3a0a8d10689a___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_hqdefault_jpg.rf.a909b9c9332b6955a211aa425f67bc41.jpg,True,1,0.7624,FU 27 TC 0530,0.8657,FU27TC0530,True,1.6721,None
+dsA_test_ca18d733-ec53-49d9-87aa-a9f6c52cc7bb___VW-Polo-GT-TSI-badge-on-the-grille-jpg_jpeg.rf.30517a112209497b8a5b48dce553bacc.jpg,True,1,0.7922,MH14DT8831,0.9889,MH14DT8831,True,1.9419,None
+dsA_test_car-wbs-MH20EE7598_00000_jpeg.rf.b7d8a01b6d7c838e8209ac318309cf8d.jpg,True,1,0.8072,MH20EE7598,0.9998,MH20EE7598,True,1.792,None
+dsA_test_video11_1040_jpg.rf.79192d60417d42ea4c3011ce363c6eee.jpg,True,1,0.8137,MH 47 Y 1124,0.9734,MH47Y1124,True,2.043,None
+dsA_test_video11_3310_jpg.rf.65cb0b29857c56ebf691ea6700ac3186.jpg,True,1,0.7922,MH 05 DK 1018,0.9231,MH05DK1018,True,1.764,None
+dsA_test_video12_90_jpg.rf.30d51d1403ee68d99092430a6d2190d9.jpg,True,1,0.7927,MH 02.BG.9542,0.9752,MH02BG9542,True,1.8243,None
+dsA_test_video3_1140_jpg.rf.597af366f09467cd781c7af691e5aeeb.jpg,True,1,0.6852,,0.0,UNKNOWN,True,1.6377,None
+dsB_test_180813110256204881_jpg.rf.c96da6d23ba2ad59b54da11cf20ca5bb.jpg,True,2,0.8995,YISI XKSA 7121 JRA,0.9254,YISIXKSA7121JRA,True,4.4353,None
+dsB_test_40-GRO-GZR-Auto-Mar_jpg.rf.1a8341f5d51ed18a390e7b96db3ceab8.jpg,True,1,0.9862,TRASERA GZR-8431 GZR-84-31 2 12 GUERRERO MEX,0.9746,TRASERAGZR8431GZR8431212GUERREROMEX,True,7.6229,None
+dsB_test_41-1200px-Washington_License_Plate_2019_jpg.rf.3b7393be24ff624dcb2ee8d9e24aee5a.jpg,True,1,0.9678,EVERGREEN STATE BIC9434 WASHINGTON 2019 WASHINGTON 2 FEB 195936,0.9989,EVERGREENSTATEBIC9434WASHINGTON2019WASHINGTON2FEB195936,True,8.1504,None
+dsB_test_83-640px-1957-8-9_Hawaii_license_plate_jpg.rf.94440ccb4e2a261a4b2b40b221332680.jpg,True,2,0.7944,HAWAII 5A·4934 ALOHA,0.9793,HAWAII5A4934ALOHA,True,7.4814,None
+dsB_test_CarLongPlate23_jpg.rf.dd18e57eac3f50a29425725a40d0de71.jpg,True,1,0.7537,51G-472.81,0.9983,51G47281,True,2.2898,None
+dsB_test_CarLongPlate857_jpg.rf.0fb031d388bb4d6758dc3d99ad72d360.jpg,True,1,0.7514,51F-048.77,0.9995,51F04877,True,2.1954,None
+dsB_test_CarLongPlateGen1143_jpg.rf.184fb30ae7d4bee9692a716545581444.jpg,True,1,0.7567,51F-079.73,0.9921,51F07973,True,2.2822,None
+dsB_test_CarLongPlateGen145_jpg.rf.c3ed82d6525fd3892101d31cbd314ee7.jpg,True,1,0.7437,51F-612.12,0.9238,51F61212,True,2.1981,None
+dsB_test_CarLongPlateGen1483_jpg.rf.8a66ac116879fb47cdd853686dd68ae6.jpg,True,1,0.7709,51A-012.04,0.9588,51A01204,True,2.1035,None
+dsB_test_CarLongPlateGen2183_jpg.rf.68c0dca531fc1db0f3a0d9da285aea1d.jpg,True,1,0.803,50LD-044.11,0.9838,50LD04411,True,2.1216,None
+[EDGE_CASE] blank_image_no_plate.png,False,0,0.0,,0.0,UNKNOWN,True,0.134,None
+[EDGE_CASE] non_existent_file_path.jpg,False,0,0.0,,0.0,UNKNOWN,True,0.0003,Could not read image from non_existent_file_path.jpg

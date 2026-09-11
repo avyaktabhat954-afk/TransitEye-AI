@@ -1,0 +1,28 @@
+{
+  "event_type": "waterlogging",
+  "detections": [
+    {
+      "class_name": "waterlogging",
+      "confidence": 0.9006,
+      "bbox": [
+        0.0,
+        174.3,
+        640.0,
+        638.6
+      ],
+      "mask_pixels": 279160,
+      "mask_area_ratio": 0.6815
+    }
+  ],
+  "total_mask_area_ratio": 0.6815,
+  "severity": "high",
+  "metadata": {
+    "status": "success",
+    "image_path": "ml/waterlogging/sample_input/vehicle_flood.jpg",
+    "image_dimensions": [
+      640,
+      640
+    ],
+    "num_instances": 1
+  }
+}

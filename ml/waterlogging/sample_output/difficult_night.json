@@ -1,0 +1,28 @@
+{
+  "event_type": "waterlogging",
+  "detections": [
+    {
+      "class_name": "waterlogging",
+      "confidence": 0.4284,
+      "bbox": [
+        1.1,
+        243.4,
+        423.8,
+        640.0
+      ],
+      "mask_pixels": 124506,
+      "mask_area_ratio": 0.304
+    }
+  ],
+  "total_mask_area_ratio": 0.304,
+  "severity": "high",
+  "metadata": {
+    "status": "success",
+    "image_path": "ml/waterlogging/sample_input/difficult_night.jpg",
+    "image_dimensions": [
+      640,
+      640
+    ],
+    "num_instances": 1
+  }
+}
