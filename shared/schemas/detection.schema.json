@@ -21,7 +21,12 @@
     },
     "type": {
       "type": "string",
-      "enum": ["road_defect", "waterlogging", "vru_safety"],
+      "enum": [
+        "road_defect",
+        "missing_infrastructure",
+        "waterlogging",
+        "vru_safety"
+      ],
       "description": "High-level domain category of the detection"
     },
     "subtype": {

@@ -56,7 +56,7 @@ CREATE INDEX IF NOT EXISTS idx_road_segments_geom
 CREATE TABLE IF NOT EXISTS detections (
   id                  TEXT PRIMARY KEY,
   type                TEXT NOT NULL
-                        CHECK (type IN ('road_defect', 'waterlogging', 'vru_safety')),
+                        CHECK (type IN ('road_defect', 'missing_infrastructure', 'waterlogging', 'vru_safety')),
   subtype             TEXT NOT NULL,
   confidence          REAL NOT NULL
                         CHECK (confidence >= 0 AND confidence <= 1),

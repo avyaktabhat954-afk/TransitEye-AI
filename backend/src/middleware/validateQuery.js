@@ -10,7 +10,12 @@
  * ISO 8601 timestamps, and schema-supported enum values.
  */
 
-const ALLOWED_DETECTION_TYPES = ["road_defect", "waterlogging", "vru_safety"];
+const ALLOWED_DETECTION_TYPES = [
+  "road_defect",
+  "waterlogging",
+  "vru_safety",
+  "missing_infrastructure",
+];
 const ALLOWED_DETECTION_STATUSES = [
   "pending",
   "confirmed",

@@ -3,7 +3,12 @@
  * Grounded in shared/schemas/detection.schema.json & common.schema.json.
  */
 
-const ALLOWED_TYPES = ["road_defect", "waterlogging", "vru_safety"];
+const ALLOWED_TYPES = [
+  "road_defect",
+  "waterlogging",
+  "vru_safety",
+  "missing_infrastructure",
+];
 const ALLOWED_SEVERITIES = ["low", "medium", "high", "critical"];
 const ALLOWED_STATUSES = ["pending", "confirmed", "in_review", "resolved", "rejected"];
 
