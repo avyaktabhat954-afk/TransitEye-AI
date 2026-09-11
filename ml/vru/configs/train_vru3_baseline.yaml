@@ -1,0 +1,56 @@
+# TransitEye VRU-3 Baseline Fine-Tuning Configuration
+# Approved by user — VRU-3 pre-training verification (2026-09-05)
+#
+# DO NOT modify this file without re-running the pre-training verification.
+# DO NOT start training until bdd100k_to_yolo.py and sanity_check.py have passed.
+#
+# Optimizer note:
+#   optimizer=auto resolves to MuSGD at runtime for this job.
+#   Reason: total_iterations = 20 epochs * ceil(70000/8) steps = 175,000 > 10,000
+#   MuSGD settings (auto-applied, config values below are IGNORED for lr0/momentum):
+#     lr0       = 0.01   (set automatically)
+#     momentum  = 0.90   (set automatically)
+#     weight_decay = 0.0005 (default)
+#   The training log will confirm the resolved optimizer when training starts.
+
+# --- Model ---
+model: yolov8n.pt                           # pretrained COCO weights (project root)
+
+# --- Dataset ---
+data: ml/vru/datasets/bdd100k_vru/bdd100k_vru.yaml
+
+# --- Core training parameters (user-approved) ---
+epochs: 20
+imgsz: 640
+batch: 8
+device: 0                                   # CUDA GPU 0 (RTX 3050 Laptop GPU)
+workers: 4
+seed: 42
+
+# --- Optimizer (auto-resolved at runtime) ---
+optimizer: auto                             # resolves to MuSGD (see note above)
+lr0: 0.01                                   # NOTE: ignored when optimizer=auto
+lrf: 0.01                                   # lr final factor
+momentum: 0.937                             # NOTE: ignored when optimizer=auto
+weight_decay: 0.0005
+
+# --- Warmup ---
+warmup_epochs: 3.0
+warmup_momentum: 0.8
+warmup_bias_lr: 0.0                         # NOTE: auto-set to 0.0 when optimizer=auto
+
+# --- Run management ---
+project: ml/vru/runs
+name: vru3_baseline
+exist_ok: false
+pretrained: true
+
+# --- Checkpointing and logging ---
+save: true
+save_period: 5                              # save checkpoint every 5 epochs
+val: true
+plots: true
+
+# --- Early stopping ---
+patience: 10                                # stop if no improvement for 10 epochs
+                                            # (not expected to trigger at 20 epochs)

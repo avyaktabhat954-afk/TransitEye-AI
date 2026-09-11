@@ -1,0 +1,18 @@
+# TransitEye VRU Safety AI - Verified Dependencies
+# Verified on Python 3.13.1 (Windows AMD64)
+# VRU-1: CPU baseline verified
+# VRU-3: Updated to CUDA 12.6 build (RTX 3050 Laptop GPU, 4.0 GB VRAM)
+#
+# IMPORTANT: Do NOT install with plain `pip install -r requirements.txt`.
+# The +cu126 CUDA suffix requires a custom PyPI index:
+#   pip install torch==2.14.0+cu126 torchvision==0.29.0+cu126 \
+#       --index-url https://download.pytorch.org/whl/cu126
+# All other packages below can be installed normally.
+
+torch==2.14.0+cu126
+torchvision==0.29.0+cu126
+ultralytics==8.4.140
+opencv-python==5.0.0.93
+pillow==12.3.0
+numpy==2.5.2
+pyyaml==6.0.3
