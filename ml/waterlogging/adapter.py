@@ -113,7 +113,7 @@ class WaterloggingAdapter(ModelAdapter):
             confidence=confidence,
             severity=severity,
             location=location_model,
-            segment_id=raw_output.get("segment_id", "SEG-DEL-RING-104"),
+            segment_id=raw_output.get("segment_id", "SEG-DEL-001"),
             status=StatusEnum(raw_output.get("status", "pending")),
             confirmed_by_count=int(raw_output.get("confirmed_by_count", 1)),
             bus_id=raw_output.get("bus_id") or context.bus_id,

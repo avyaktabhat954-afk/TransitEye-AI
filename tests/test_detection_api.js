@@ -15,6 +15,7 @@ const roadDefectPayload = JSON.parse(
 );
 // Ingestion occurs prior to spatial road-segment matching (Task 4)
 roadDefectPayload.segment_id = null;
+roadDefectPayload.id = `det-test-${Date.now()}`;
 
 
 async function runTests() {
