@@ -1,33 +1,51 @@
-from datetime import datetime, timezone
+﻿from datetime import datetime, timezone
 from typing import Dict, Any
 from fastapi import FastAPI, HTTPException, Body
+
 from app.config.settings import settings
 from app.orchestrator.core import orchestrator_core
-from app.adapters.fake_adapters import (
-    RoadDefectAdapter,
-    VRUAdapter,
-    ANPRAdapter,
-    TrafficDensityAdapter,
-)
 
+# Import production ModelAdapters for all 6 AI capabilities
+from ml.road_defects.adapter import RoadDefectsAdapter
+from ml.missing_infrastructure.adapter import MissingInfrastructureAdapter
+from ml.traffic.adapter import TrafficAdapter
+from ml.vru.adapter import VRUSafetyAdapter
+from ml.anpr.adapter import ANPRAdapter
 from ml.waterlogging.adapter import WaterloggingAdapter
 
 # Initialize FastAPI application
 app = FastAPI(
     title="TransitEye Edge Orchestrator",
-    description="Edge intelligence coordinator and model ingestion gateway",
+    description="Edge intelligence coordinator and multi-model perception gateway",
     version="1.0.0",
 )
 
-# Register default perception adapters
-orchestrator_core.register_adapter("road_defect", RoadDefectAdapter())
-orchestrator_core.register_adapter("detection", RoadDefectAdapter())
-orchestrator_core.register_adapter("waterlogging", WaterloggingAdapter())
-orchestrator_core.register_adapter("vru_safety", VRUAdapter())
-orchestrator_core.register_adapter("incident", ANPRAdapter())
-orchestrator_core.register_adapter("anpr", ANPRAdapter())
-orchestrator_core.register_adapter("vehicle_density", TrafficDensityAdapter())
-orchestrator_core.register_adapter("traffic_density", TrafficDensityAdapter())
+# Instantiate production adapters
+road_defects_adapter = RoadDefectsAdapter()
+missing_infra_adapter = MissingInfrastructureAdapter()
+traffic_adapter = TrafficAdapter()
+vru_safety_adapter = VRUSafetyAdapter()
+anpr_adapter = ANPRAdapter()
+waterlogging_adapter = WaterloggingAdapter()
+
+# Register adapters for all six perception capabilities and backward-compatible route aliases
+orchestrator_core.register_adapter("road_defects", road_defects_adapter)
+orchestrator_core.register_adapter("road_defect", road_defects_adapter)
+
+orchestrator_core.register_adapter("missing_infrastructure", missing_infra_adapter)
+orchestrator_core.register_adapter("missing_infra", missing_infra_adapter)
+
+orchestrator_core.register_adapter("traffic", traffic_adapter)
+orchestrator_core.register_adapter("traffic_density", traffic_adapter)
+orchestrator_core.register_adapter("vehicle_density", traffic_adapter)
+
+orchestrator_core.register_adapter("vru_safety", vru_safety_adapter)
+orchestrator_core.register_adapter("vru", vru_safety_adapter)
+
+orchestrator_core.register_adapter("anpr", anpr_adapter)
+orchestrator_core.register_adapter("incident", anpr_adapter)
+
+orchestrator_core.register_adapter("waterlogging", waterlogging_adapter)
 
 
 @app.get("/health")
@@ -40,14 +58,16 @@ def health_check() -> Dict[str, Any]:
         "status": "healthy",
         "bus_id": settings.edge_bus_id,
         "backend_url": settings.backend_api_url,
+        "registered_adapters": list(orchestrator_core._adapters.keys()),
         "timestamp": now_iso,
     }
+
 
 @app.post("/ingest/{adapter_name}")
 def ingest_observation(adapter_name: str, payload: Dict[str, Any] = Body(...)) -> Dict[str, Any]:
     """
     Ingests raw perception output, runs normalization through the registered adapter,
-    and forwards the canonical contract to the central backend.
+    and forwards the canonical contract payload to the central backend.
     """
     try:
         backend_resp = orchestrator_core.process_and_forward(adapter_name, payload)
@@ -61,6 +81,7 @@ def ingest_observation(adapter_name: str, payload: Dict[str, Any] = Body(...)) -
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
 
 if __name__ == "__main__":
     import uvicorn
