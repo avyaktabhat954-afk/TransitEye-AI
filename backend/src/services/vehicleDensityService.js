@@ -1,13 +1,24 @@
 const crypto = require("crypto");
 const defaultRepository = require("../repositories/vehicleDensityRepository");
+const defaultSegmentMatcher = require("../repositories/roadSegmentRepository");
 
 /**
  * Vehicle Density Service
  * Encapsulates domain logic, normalization, and defaults for traffic intelligence metrics.
+ *
+ * Task 4: Before persisting, attempts GPS → road segment matching via PostGIS
+ * if segment_id is not already provided by the caller.
  */
 class VehicleDensityService {
-  constructor(repository = defaultRepository) {
+  constructor(
+    repository = defaultRepository,
+    segmentMatcher = defaultSegmentMatcher
+  ) {
     this.repository = repository;
+    this.segmentMatcher = segmentMatcher;
+    this.maxMatchDistance = Number(
+      process.env.SEGMENT_MATCH_RADIUS_METERS || 50
+    );
   }
 
   async createVehicleDensity(payload) {
@@ -50,11 +61,31 @@ class VehicleDensityService {
       metadata: payload.metadata || {},
     };
 
+    // GPS → Road Segment Matching (Task 4)
+    // If segment_id was not provided and location is available, attempt spatial match
+    if (!normalized.segment_id && normalized.location) {
+      try {
+        const match = await this.segmentMatcher.findNearest(
+          normalized.location.longitude,
+          normalized.location.latitude,
+          this.maxMatchDistance
+        );
+        if (match) {
+          normalized.segment_id = match.segment_id;
+        }
+      } catch (err) {
+        // Best-effort: if spatial matching fails, proceed without segment_id
+        console.warn(
+          `[VehicleDensityService] Segment matching failed (best-effort): ${err.message}`
+        );
+      }
+    }
+
     return await this.repository.create(normalized);
   }
 
-  async getAllVehicleDensity() {
-    return await this.repository.findAll();
+  async getAllVehicleDensity(options = {}) {
+    return await this.repository.findAll(options);
   }
 
   async getVehicleDensityById(id) {

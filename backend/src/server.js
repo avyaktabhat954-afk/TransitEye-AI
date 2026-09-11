@@ -1,3 +1,5 @@
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 require("dotenv").config();
 
 const express = require("express");
@@ -5,6 +7,7 @@ const cors = require("cors");
 const detectionRoutes = require("./routes/detectionRoutes");
 const incidentRoutes = require("./routes/incidentRoutes");
 const vehicleDensityRoutes = require("./routes/vehicleDensityRoutes");
+const { supabaseEnabled, checkSupabaseConnection } = require("./config/supabaseClient");
 
 const app = express();
 
@@ -46,6 +49,19 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`TransitEye backend running on http://localhost:${PORT}`);
-});
+
+  // Non-blocking Supabase connectivity check
+  if (supabaseEnabled) {
+    const result = await checkSupabaseConnection();
+    if (result.connected) {
+      console.log("[Supabase] Connection verified — database is reachable.");
+    } else {
+      console.warn(`[Supabase] Connection check failed: ${result.error}`);
+    }
+  } else {
+    console.log("[Supabase] Not configured — using in-memory repositories.");
+  }
+});
+

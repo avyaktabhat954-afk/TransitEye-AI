@@ -45,8 +45,8 @@ class IncidentService {
     return await this.repository.create(normalized);
   }
 
-  async getAllIncidents() {
-    return await this.repository.findAll();
+  async getAllIncidents(options = {}) {
+    return await this.repository.findAll(options);
   }
 
   async getIncidentById(id) {

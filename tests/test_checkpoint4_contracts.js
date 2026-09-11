@@ -14,6 +14,9 @@ const roadDefectPayload = JSON.parse(
     "utf8"
   )
 );
+// Ingestion occurs prior to spatial road-segment matching (Task 4)
+roadDefectPayload.segment_id = null;
+
 const incidentPayload = JSON.parse(
   fs.readFileSync(
     path.join(__dirname, "../shared/schemas/examples/incident_anpr.json"),
@@ -26,6 +29,9 @@ const densityPayload = JSON.parse(
     "utf8"
   )
 );
+// Ingestion occurs prior to spatial road-segment matching (Task 4)
+densityPayload.segment_id = null;
+
 
 async function runTests() {
   console.log("=== Testing TransitEye Checkpoint 4 Contracts ===\n");

@@ -13,6 +13,9 @@ const roadDefectPayload = JSON.parse(
     "utf8"
   )
 );
+// Ingestion occurs prior to spatial road-segment matching (Task 4)
+roadDefectPayload.segment_id = null;
+
 
 async function runTests() {
   console.log("=== Testing TransitEye Backend Detection API ===\n");
