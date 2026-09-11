@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://transiteye.city/schemas/detection.schema.json",
+  "title": "TransitEye Canonical Detection Schema",
+  "description": "Schema for physical road observations: road defects, waterlogging, and VRU/safety risks",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "subtype",
+    "confidence",
+    "severity",
+    "location",
+    "bus_id",
+    "timestamp"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the detection observation (UUID or formatted ID)"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["road_defect", "waterlogging", "vru_safety"],
+      "description": "High-level domain category of the detection"
+    },
+    "subtype": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Specific detection label (e.g. pothole, crack, deep_water, pedestrian_hazard)"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Model confidence score between 0.0 and 1.0"
+    },
+    "severity": {
+      "$ref": "common.schema.json#/definitions/severity"
+    },
+    "location": {
+      "$ref": "common.schema.json#/definitions/location"
+    },
+    "segment_id": {
+      "type": ["string", "null"],
+      "description": "Optional GIS road segment identifier if matched"
+    },
+    "status": {
+      "$ref": "common.schema.json#/definitions/status",
+      "default": "pending"
+    },
+    "confirmed_by_count": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 1,
+      "description": "Number of confirming passes or buses validating this observation"
+    },
+    "bus_id": {
+      "$ref": "common.schema.json#/definitions/bus_id"
+    },
+    "timestamp": {
+      "$ref": "common.schema.json#/definitions/timestamp"
+    },
+    "thumbnail_url": {
+      "type": ["string", "null"],
+      "description": "URI or reference path to an image thumbnail/evidence snapshot"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Stream-specific attributes (e.g. bounding box, depth estimate, sensor fusion details)"
+    }
+  },
+  "additionalProperties": false
+}

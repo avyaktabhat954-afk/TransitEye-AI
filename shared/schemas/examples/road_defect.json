@@ -1,0 +1,26 @@
+{
+  "id": "det-rd-2026-001",
+  "type": "road_defect",
+  "subtype": "pothole",
+  "confidence": 0.92,
+  "severity": "high",
+  "location": {
+    "latitude": 28.613939,
+    "longitude": 77.209021,
+    "altitude": 216.5,
+    "speed": 34.2,
+    "heading": 178.5,
+    "accuracy": 2.1
+  },
+  "segment_id": "SEG-DEL-RING-104",
+  "status": "pending",
+  "confirmed_by_count": 1,
+  "bus_id": "BUS-DEL-101",
+  "timestamp": "2026-09-03T14:15:30.000Z",
+  "thumbnail_url": "https://storage.transiteye.city/evidence/thumbnails/pothole_det_rd_001.jpg",
+  "metadata": {
+    "estimated_depth_cm": 8.5,
+    "estimated_area_m2": 0.45,
+    "bbox": [120, 340, 260, 480]
+  }
+}

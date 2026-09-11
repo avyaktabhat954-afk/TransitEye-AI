@@ -1,0 +1,26 @@
+{
+  "id": "det-vru-2026-003",
+  "type": "vru_safety",
+  "subtype": "pedestrian_near_miss",
+  "confidence": 0.94,
+  "severity": "critical",
+  "location": {
+    "latitude": 28.632844,
+    "longitude": 77.219714,
+    "altitude": 214.2,
+    "speed": 18.5,
+    "heading": 290.0,
+    "accuracy": 1.8
+  },
+  "segment_id": "SEG-DEL-CP-005",
+  "status": "pending",
+  "confirmed_by_count": 1,
+  "bus_id": "BUS-DEL-108",
+  "timestamp": "2026-09-03T14:22:10.000Z",
+  "thumbnail_url": "https://storage.transiteye.city/evidence/thumbnails/vru_det_vru_003.jpg",
+  "metadata": {
+    "distance_to_bus_m": 2.4,
+    "time_to_collision_sec": 1.2,
+    "vru_type": "pedestrian_jaywalking"
+  }
+}

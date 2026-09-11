@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://transiteye.city/schemas/vehicle_density.schema.json",
+  "title": "TransitEye Vehicle Density Schema",
+  "description": "Schema for traffic flow and vehicle density metrics aggregated by edge perception models",
+  "type": "object",
+  "required": [
+    "id",
+    "vehicle_count",
+    "class_breakdown",
+    "bus_id",
+    "recorded_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the density observation"
+    },
+    "segment_id": {
+      "type": ["string", "null"],
+      "description": "Road segment identifier for localized traffic aggregation"
+    },
+    "vehicle_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total count of vehicles observed in the frame or time window"
+    },
+    "class_breakdown": {
+      "type": "object",
+      "description": "Breakdown of vehicle counts by class (e.g. car, bus, truck, motorcycle, auto_rickshaw)",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "bus_id": {
+      "$ref": "common.schema.json#/definitions/bus_id"
+    },
+    "recorded_at": {
+      "$ref": "common.schema.json#/definitions/timestamp"
+    },
+    "location": {
+      "$ref": "common.schema.json#/definitions/location"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata (e.g. tracking algorithm, average speed, congestion level)"
+    }
+  },
+  "additionalProperties": false
+}

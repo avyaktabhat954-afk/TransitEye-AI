@@ -1,0 +1,21 @@
+{
+  "id": "inc-2026-005",
+  "plate_text": "DL01AB1234",
+  "plate_confidence": 0.96,
+  "trigger_reason": "bus_lane_obstruction",
+  "location": {
+    "latitude": 28.628912,
+    "longitude": 77.206531,
+    "altitude": 215.0,
+    "speed": 12.0,
+    "heading": 45.0,
+    "accuracy": 1.5
+  },
+  "clip_url": "https://storage.transiteye.city/evidence/clips/inc_2026_005.mp4",
+  "bus_id": "BUS-DEL-103",
+  "timestamp": "2026-09-03T14:28:15.000Z",
+  "metadata": {
+    "vehicle_type": "private_suv",
+    "obstruction_duration_sec": 42
+  }
+}

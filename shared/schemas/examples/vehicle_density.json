@@ -1,0 +1,26 @@
+{
+  "id": "vd-2026-004",
+  "segment_id": "SEG-DEL-RING-104",
+  "vehicle_count": 28,
+  "class_breakdown": {
+    "car": 16,
+    "bus": 3,
+    "truck": 1,
+    "motorcycle": 6,
+    "auto_rickshaw": 2
+  },
+  "bus_id": "BUS-DEL-101",
+  "recorded_at": "2026-09-03T14:25:00.000Z",
+  "location": {
+    "latitude": 28.614521,
+    "longitude": 77.209845,
+    "altitude": 216.0,
+    "speed": 31.0,
+    "heading": 175.0,
+    "accuracy": 2.0
+  },
+  "metadata": {
+    "congestion_level": "moderate",
+    "sampling_window_sec": 30
+  }
+}

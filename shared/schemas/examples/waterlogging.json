@@ -1,0 +1,26 @@
+{
+  "id": "det-wl-2026-002",
+  "type": "waterlogging",
+  "subtype": "water_accumulation",
+  "confidence": 0.86,
+  "severity": "medium",
+  "location": {
+    "latitude": 28.535517,
+    "longitude": 77.258826,
+    "altitude": 208.0,
+    "speed": 22.0,
+    "heading": 85.0,
+    "accuracy": 3.4
+  },
+  "segment_id": "SEG-DEL-OKHLA-018",
+  "status": "pending",
+  "confirmed_by_count": 1,
+  "bus_id": "BUS-DEL-104",
+  "timestamp": "2026-09-03T14:18:45.000Z",
+  "thumbnail_url": "https://storage.transiteye.city/evidence/thumbnails/waterlog_det_wl_002.jpg",
+  "metadata": {
+    "estimated_coverage_pct": 35.0,
+    "passable_lanes": 2,
+    "total_lanes": 3
+  }
+}
